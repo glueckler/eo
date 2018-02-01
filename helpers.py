@@ -31,6 +31,25 @@ def get_time_passed(start, end):
 def ts_to_date(time_stamp):
     return datetime.fromtimestamp(time_stamp).isoformat()
 
+# turn a timestamp into hrs:mins:secs
+def secs_to_hours(secs):
+    one_hour = 60 * 60
+    one_minute = 60
+
+    mod_minutes = secs % one_hour
+
+    hours = secs / one_hour
+    hours = int(hours)
+
+    seconds = mod_minutes % one_minute
+
+    minutes = mod_minutes / one_minute
+    hrs = str(hours)
+    mins = '0' + str(int(minutes))
+    secs = '0' + str(seconds)
+
+    return hrs + ':' + mins[len(mins) - 2 : len(mins)] + ':' + secs[len(secs) - 2 : len(secs)]
+
 
 #    C L E A N I N G  F U N C T I O N S
 #    #    #    #    #    #    #    #    #   #
