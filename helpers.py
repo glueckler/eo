@@ -113,7 +113,7 @@ def convert_to_string(input):
 #
 # define file rewrite function
 def re_write_l_s(total, forever_total, latest_ts, latest_readable):
-    temp = open('./last_session_temp.py', 'w').write(l_s_read())
+    open('./last_session_temp.py', 'w').write(l_s_read())
     new_file = open(l_s_path, 'w')
     new_file.truncate()
     total = convert_to_string(total)
