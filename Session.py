@@ -2,7 +2,6 @@ from helpers import *
 
 class Session:
     def __init__(self, current_time):
-        print 'initializing Session :)'
         self.active = True
 
         self.start_time = current_time
@@ -14,9 +13,6 @@ class Session:
 
         self.latest_week = int(l_s_read_line(2))
         # self.is_same_week = ts_to_week(self.latest_week) == self.current_week
-
-        print 'current week: week %d' % self.current_week
-        print 'total time accumalated.. %s' % secs_to_hours(self.total_this_week)
 
     def get_total_session_time(self):
         return get_time_passed(self.start_time, get_current_time())
@@ -35,7 +31,3 @@ class Session:
         self.active = False
         self.total_this_week = self.get_total_this_week()
         self.write_l_s()
-
-    def summary(self):
-        print 'Session summary'
-        print 'Total time accum: %s' % secs_to_hours(self.total_this_week)

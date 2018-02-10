@@ -8,7 +8,12 @@ from Session import Session
 l_s_clean()
 
 # call the session
+print 'initializing Session :)'
 sess = Session(get_current_time())
+
+# print initial session info
+print 'current week: week %d' % sess.current_week
+print 'total time accumalated.. %s' % secs_to_hours(sess.total_this_week)
 
 # set up the timer stop and call timer
 update_stop = threading.Event()
@@ -23,5 +28,6 @@ while sess.active:
     elif (raw_in == 'session'):
         print sess.get_total_session_time()
 
-# clean up the session
-sess.summary()
+# print info on the session
+print 'Session summary'
+print 'Total time accum: %s' % secs_to_hours(sess.total_this_week)
