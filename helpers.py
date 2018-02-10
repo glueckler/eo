@@ -12,10 +12,10 @@ from variables import *
 def ts_to_week(time_stamp):
     i = 1
     week = day1
-    inWeek = False
-    while not inWeek:
-        inWeek = (time_stamp > week and time_stamp <= week + one_week)
-        if inWeek:
+    in_week = False
+    while not in_week:
+        in_week = (time_stamp >= week and time_stamp <= week + one_week)
+        if in_week:
             return i
         week = week + one_week
         i += 1
@@ -119,8 +119,8 @@ def re_write_l_s(total, forever_total, latest_ts, latest_readable):
     total = convert_to_string(total)
     new_file.write(total + '\n')
     new_file.write(forever_total + '\n')
-    new_file.write(str(day1) + '\n')
-    new_file.write(ts_to_date(day1) + '\n' )
+    new_file.write(str(latest_ts) + '\n')
+    new_file.write(latest_readable + '\n' )
     os.remove(l_s_temp)
 
 

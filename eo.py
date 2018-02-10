@@ -13,7 +13,7 @@ sess = Session(get_current_time())
 
 # print initial session info
 print 'current week: week %d' % sess.current_week
-print 'total time accumalated.. %s' % secs_to_hours(sess.total_this_week)
+print 'total this week.. %s' % secs_to_hours(sess.total_this_week)
 
 # set up the timer stop and call timer
 update_stop = threading.Event()
