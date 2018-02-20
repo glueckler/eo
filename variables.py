@@ -7,3 +7,8 @@ one_week = 7 * 24 * 60 * 60
 #
 l_s_path = './last_session.py'
 l_s_temp = './last_session_temp.py'
+
+#
+# monthly.py
+#
+monthly_path = './monthly'

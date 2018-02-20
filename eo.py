@@ -31,3 +31,4 @@ while sess.active:
 # print info on the session
 print 'Session summary'
 print 'Total time accum: %s' % secs_to_hours(sess.total_this_week)
+print 'Total Monthly: %s' % secs_to_hours(sess.total_this_month)

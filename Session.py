@@ -17,6 +17,13 @@ class Session:
         if (not is_same_week):
             self.total_this_week = 0
 
+        current_month = get_month()
+        self.total_this_month = total_for_month(current_month)
+        if self.total_this_month:
+            self.total_this_month = int(self.total_this_month)
+        else:
+            self.total_this_month = 0
+
 
     def get_total_session_time(self):
         return get_time_passed(self.start_time, get_current_time())
@@ -29,9 +36,14 @@ class Session:
         self.total_this_week = self.get_total_this_week()
         self.write_l_s()
 
+        self.total_this_month = self.total_this_month + self.get_total_session_time()
+        write_monthly(self.total_this_month)
+
     def write_l_s(self):
         sess_time = self.get_total_session_time()
         total_forever = str(self.total_forever + sess_time)
         latest_ts = str(self.start_time + sess_time)
         latest_human_readable = ts_to_date(int(latest_ts))
         re_write_l_s(self.total_this_week, total_forever, latest_ts, latest_human_readable)
+
+        
